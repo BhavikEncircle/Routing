@@ -1,0 +1,7 @@
+@import "tailwindcss";
+.main-container{
+  height: 100vh;
+}
+.btnAdd{
+  background: blue;
+}
