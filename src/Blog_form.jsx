@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Blogs from "./Blogs";
 
-const Blog_form = () => {
+const Blog_form = ({ blogs, setBlogs }) => {
   const [blog, setBlog] = useState({ title: "", content: "" });
-  const [blogs, setBlogs] = useState([]);
 
   const handleAdd = () => {
     if (!blog.title || !blog.content) return;
@@ -17,8 +16,8 @@ const Blog_form = () => {
   };
 
   return (
-    <div>
-      <div className="mt-5 border p-5 w-150 rounded-xl">
+    <div className="flex mt-5 flex-col items-center">
+      <div className="mt-5  border p-5 w-150 rounded-xl">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -59,7 +58,7 @@ const Blog_form = () => {
         </form>
       </div>
       {blogs.length === 0 ? (
-        <p className="text-center">No Blogs yet.</p>
+        <p className="text-center text-2xl font-md mt-5">No Blogs yet.</p>
       ) : (
         blogs.map((items, index) => (
           <Blogs

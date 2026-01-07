@@ -1,16 +1,21 @@
-import React, { Fragment } from "react";
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./Home";
 import Blog_form from "./Blog_form";
+import CardDetail from "./CardDetail";
 
 const App = () => {
+  const [blogs, setBlogs] = useState([]);
+
   return (
-    <Fragment>
-      <div className="flex flex-col items-center justify-center ">
-        <h1 className="text-3xl font-black">Welcome to Blogs</h1>
-        <br />
-        <h2 className="text-xl font-bold">Share your thoughts here</h2>
-        <Blog_form />
-      </div>
-    </Fragment>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route
+        path="/form"
+        element={<Blog_form blogs={blogs} setBlogs={setBlogs} />}
+      />
+      <Route path="/details/:id" element={<CardDetail blogs={blogs} />} />
+    </Routes>
   );
 };
 
