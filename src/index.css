@@ -1,7 +1,7 @@
-@import "tailwindcss";
-.main-container{
+@import 'tailwindcss';
+.main-container {
   height: 100vh;
 }
-.btnAdd{
+.btnAdd {
   background: blue;
 }
